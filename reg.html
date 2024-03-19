@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body{
+    font-family: 'Josefin Sans', sans-serif;
+    background-color:#182f32;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+    }
+   #message {
+       display: none;
+       background: #edffef;
+       color: #000;
+       position: relative;
+       padding: 20px;
+       margin-top: 10px;
+   }
+   #message p {
+       padding: 10px 10px;
+       font-size: 18px;
+   }
+   .valid {
+       color: green;
+   }
+   .valid:before {
+       position: relative;
+       left: -20px;
+       content: "\2713"; 
+   }
+   .invalid {
+       color: red;
+   }
+   .invalid:before {
+       position: relative;
+       content: "\2717"; 
+   }
+</style>
+<body>
+        <form align="center" class="login-container" action="user.html">
+            <div>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" minlength="5" maxlength="12" required>
+            </div>
+            <div>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" id="psw" placeholder="Enter Password" name="psw" minlength="8" required>
+            </div>
+            <div id="message">
+                <label>Password must contain:</label>
+                    <P id="letter" class="invalid">A lowercase letter</p>
+                    <p id="capital" class="invalid">An uppercase letter</p>
+                    <p id="number" class="invalid">A number</p>
+                    <p id="length" class="invalid">Minimum 8 characters</p>
+            </div>
+            <button type="submit">Signup</button>
+            <div><label>OR</label></div>
+            <div>
+                <label for="signup"><b>Already have an account? <a href="login.html">Login</a></b></label>
+            </div>
+        </form>  
+    <script>
+        var myInput = document.getElementById("psw");
+        var message = document.getElementById("message");
+        myInput.onfocus = function() {
+            message.style.display = "block";
+        }
+
+        myInput.onblur = function() {
+            message.style.display = "none";
+        }
+
+        myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {  
+                document.getElementById("letter").classList.remove("invalid");
+                document.getElementById("letter").classList.add("valid");
+            } else {
+                document.getElementById("letter").classList.remove("valid");
+                document.getElementById("letter").classList.add("invalid");
+            }
+            
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {  
+                document.getElementById("capital").classList.remove("invalid");
+                document.getElementById("capital").classList.add("valid");
+            } else {
+                document.getElementById("capital").classList.remove("valid");
+                document.getElementById("capital").classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {  
+                document.getElementById("number").classList.remove("invalid");
+                document.getElementById("number").classList.add("valid");
+            } else {
+                document.getElementById("number").classList.remove("valid");
+                document.getElementById("number").classList.add("invalid");
+            }
+            
+            // Validate length
+            if(myInput.value.length >= 8) {
+                document.getElementById("length").classList.remove("invalid");
+                document.getElementById("length").classList.add("valid");
+            } else {
+                document.getElementById("length").classList.remove("valid");
+                document.getElementById("length").classList.add("invalid");
+            }
+        }
+    document.querySelector("form").onsubmit = function(event) {
+    var isValid = true;
+    // Check if any validation class is invalid
+    if (document.querySelectorAll('.invalid').length > 0) {
+        isValid = false;
+    }
+    // If validation failed, prevent form submission
+    if (!isValid) {
+        event.preventDefault();
+        alert("Please make sure your password meets the criteria.");
+    }
+};
+    </script>
+</body>
+</html>

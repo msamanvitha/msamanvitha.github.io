@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Contact Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body{
+        background:#182f32 center center fixed;
+        background-size: cover;
+        background-blend-mode: darken;
+        font-family: 'Josefin Sans', sans-serif;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+</style> 
+
+<body>
+    <div align="center" class="contact-container">
+        <h1>Contact Us</h1>
+    </div>
+        
+    <div align="center" class="contact-box" >
+        <h3>Share your Queries</h3>
+
+        <div>
+            <form id="contactForm" class="contact-container-left">
+                <div style="padding: 0px 0px 30px;">
+                    <label><b>Name</b></label>
+                    <input id="nameInput" type="text" placeholder="First and Last Name">
+                </div>
+                <div style="padding: 0px 0px 30px;">
+                    <label><b>Phone</b></label>
+                    <input id="phoneInput" type="tel" placeholder="571-xxx-xxxx">
+                </div>
+                <div style="padding: 0px 0px 30px;">
+                    <label><b>Email</b></label>
+                    <input id="emailInput" type="email" placeholder="demo@gmail.com">
+                </div>
+                <div style="padding: 0px 0px 5px;">
+                    <label><b>Message</b></label>
+                </div>
+                <div style="padding: 0px 0px 30px;">
+                    <textarea id="messageInput" rows="5" placeholder="Your Message"></textarea>
+                </div>
+                <div style="padding: 0px 0px 30px;">
+                    <button id="submitButton" type="submit" class="contact-container-button">SEND</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="padding-bottom: 50px;">
+    </div>
+
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Names:</strong> Samanvitha Matta, Sharanya Garika, Maitreyie Adep</p>
+        <p><strong>Email:</strong> reciperealm@gmail.com</p>
+        <p><strong>Phone:</strong> 123-456-7890</p>
+        <p><strong>Address:</strong> 4441 Fountain Plaza, Fairfax, VA, 30001, United States</p>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+        
+            // Get input values
+            var name = document.getElementById('nameInput').value.trim();
+            var phone = document.getElementById('phoneInput').value.trim();
+            var email = document.getElementById('emailInput').value.trim();
+            var message = document.getElementById('messageInput').value.trim();
+        
+            // Validate inputs
+            if (name === '' || phone === '' || email === '' || message === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+        
+            // Regular expression for email validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            var phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+            if (!phonePattern.test(phone)) {
+                alert('Please enter a valid phone number in the format: 123-456-7890');
+                return; // Prevent form submission
+            }
+        
+            // If all validations pass, show success message
+            alert('Message sent successfully!');
+            document.getElementById('contactForm').reset();
+        });
+        </script>
+</body>
+</html>

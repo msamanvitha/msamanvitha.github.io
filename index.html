@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Recipe Realm</title>
+    </head>
+<body>
+    
+    <header>
+        <div id="sidebar">
+            <a href="javascript:void(0)" id="close-btn" onclick="closeNav()">X</a>
+            <a href="login.html">My Recipes</a>
+            <a href="login.html">Photo Album</a>  
+            <a href="login.html">Contact Us</a> 
+            <a href="about.html">About Us</a> 
+            
+        </div>
+        <div class="logo">
+            <span id="open-btn" onclick="openNav()">&#9776; Recipe Realm</span>
+          </div>
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">Chinese</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Indian</button>
+                <div class="dropdown-content">
+                    <a href="login.html">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Italian</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Japanese</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Mexican</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Thai</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div>
+            <div class="dropdown" id="Home-Login">
+                <button class="dropbtn" onclick="window.location.href='login.html'">Login</button>
+                </div> 
+        </div>
+    </header>
+    <div class="hero">
+        <div class="content">
+            <h1>Unlock the World of Flavor at Recipe Realm.</h1>
+            <h3>Recipe Realm is the place where you discover recipes from around the world in one place!</h3>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Names:</strong> Samanvitha Matta, Sharanya Garika, Maitreyie Adep</p>
+        <p><strong>Email:</strong> reciperealm@gmail.com</p>
+        <p><strong>Phone:</strong> 123-456-7890</p>
+        <p><strong>Address:</strong> 4441 Fountain Plaza, Fairfax, VA, 30001, United States</p>
+    </div>
+    
+</body>
+<script>
+    function openNav() {
+      document.getElementById("sidebar").style.left = "0";
+      document.getElementById("content").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("sidebar").style.left = "-250px";
+      document.getElementById("content").style.marginLeft = "0";
+    }
+  </script>
+</html>

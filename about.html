@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Responsive About us Section</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    body{
+        background:#182f32 center center fixed;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+    .heading{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .heading h1{
+        font-size: 50px;
+        color: #edffef;
+        margin-bottom: 25px;
+        position: relative;
+    } 
+    .heading h1::after{
+        content: "";
+        position:absolute;
+        width:100%;
+        height: 4px;
+        display: block;
+        margin:0 auto;
+        background-color: #4caf50; 
+    }
+    .heading p{
+        font-size:18px;
+        color: #f3eeee;
+        margin-bottom: 35px;
+    }
+    .heading h2{
+        color:antiquewhite;
+        position: relative;
+        font-size: 50px;
+    }
+    .container{
+        width: 90%;
+        margin: 50px auto;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    .about{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .image{
+        flex: 1;
+        margin-right: 40px;
+        overflow: hidden;
+    }
+    .image img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: 0.5s ease;
+    }
+    .about.image.hover img{
+        transform: scale(1.2);
+    }
+    .about.content
+    {
+        flex: 1;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+    .about-content h2{
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #4caf50;
+    }
+    .about-content p{
+        font-size: 18px;
+        line-height: 1.5;
+        color: #ffffff;
+    }
+    .heading h3{
+        font-size: 24px;
+        color: #4caf50;
+    }
+</style>
+<body>
+       <div class="heading">
+        <h1>About Us</h1>
+        <h3>Creators</h3>
+            <p>Samanvitha Matta, Maitreyie Adep, Sai Sharanya Garika </p>
+            </div>
+            <div class="container">
+                <section class="about">
+                    <div class="about-content">
+                        <h2>Main Aim of the project</h2>
+                        <p>The User-interactive page of our recipe website
+                            provides a friendly experience with an easy registration/login 
+                            page allowing users to create accounts for personalized interactions. 
+                            Once logged in, users can access a convenient dropdown in their account,
+                            offering options for easy sign-out and quick access to their saved recipes. 
+                            The “My Recipes” section allows users to manage and organize their favourite recipes efficiently. 
+                            Additionally, our frontend recipe website offers a unique feature, “Food Album”, under the user 
+                            account dropdown, allowing users to upload images of recipes they have personally tried. 
+                            The website also features a search functionality, enabling users to quickly find recipes based on 
+                            specific cuisine. In our home page we will have multiple cuisine tabs like Indian, Japanese, Mexican, 
+                            Italian. Under each tab users can find a variety of meal categories for users to explore. Meal categories 
+                            includes recipes for Breakfast, Lunch, Appetizers, Dinner, Desserts, Drinks. Inside each recipe page, 
+                            users can save their favourite recipes for future reference, print them 
+                            for offline use, and effortlessly share them with friends and family. </p>
+                    </div>
+                </section>
+            </div>
+            <div style="padding-bottom: 50px;">
+            </div>
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><strong>Names:</strong> Samanvitha Matta, Sharanya Garika, Maitreyie Adep</p>
+                <p><strong>Email:</strong> reciperealm@gmail.com</p>
+                <p><strong>Phone:</strong> 123-456-7890</p>
+                <p><strong>Address:</strong> 4441 Fountain Plaza, Fairfax, VA, 30001, United States</p>
+            </div>
+        </div>
+   
+
+
+    
+</body>
+</html>

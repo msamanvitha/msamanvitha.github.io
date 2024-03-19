@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Recipe Realm</title>
+        <style>
+            /* Popup styles */
+            .popup {
+                display: none;
+                position: fixed;
+                top: 40%;
+                left: 80%;
+                transform: translate(-50%, -50%);
+                /*background-color: rgba(0, 0, 0, 0.8);*/
+                padding: 60px;
+                border-radius: 80px;
+                z-index: 1000;
+            }
+            
+            .popup-content {
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: white;
+                justify-content: center;
+                width: 500px;
+                background-color: rgba(0, 0, 0, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                }
+            
+            .popup-content p {
+                font-size: 40px;
+            }
+            
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+        </style>
+    </head>
+<body>
+    
+    <header>
+        <div id="sidebar">
+            <a href="javascript:void(0)" id="close-btn" onclick="closeNav()">X</a>
+            <a href="wishlist.html">My Recipes</a>
+            <a href="photo.html">Photo Album</a>  
+            <a href="contact.html">Contact Us</a> 
+            <a href="about.html">About Us</a> 
+        </div>
+        <div class="logo">
+            <span id="open-btn" onclick="openNav()">&#9776; Recipe Realm</span>
+          </div>
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">Chinese</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Indian</button>
+                <div class="dropdown-content">
+                    <a href="recipes.html" onclick="showMealList()">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Italian</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Japanese</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Mexican</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                </div> 
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Thai</button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                    <a href="#">Snacks</a>
+                    <a href="#">Drinks</a>
+                    <a href="#">Desserts</a>
+                    <a href="#">Account</a>
+                </div> 
+            </div>
+            <div class="dropdown" id="Home-Login">
+                <button class="dropbtn" onclick="showLogoutPopup()">Logout</button>
+                <button class="dropbtn" onclick="window.location.href='index.html'">Login</button>
+                </div> 
+        </div>
+    </header>       
+    <div class="hero">
+        <div class="content">
+            <h1>Unlock the World of Flavor at Recipe Realm.</h1>
+            <h3>Recipe Realm is the place where you discover recipes from around the world in one place!</h3>
+        </div>
+    </div>
+    <div class="dropdown" id="Home-Login">
+        <button class="dropbtn" onclick="window.location.href='index.html'">Logout</button>
+    <div id="logoutPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeLogoutPopup()">&times;</span>
+            <p>Account logged out successfully!</p>
+        </div>
+    </div>
+</body>
+<script>
+    function openNav() {
+      document.getElementById("sidebar").style.left = "0";
+      document.getElementById("content").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("sidebar").style.left = "-250px";
+      document.getElementById("content").style.marginLeft = "0";
+    }
+    function showLogoutPopup() {
+        document.getElementById("logoutPopup").style.display = "block";
+    }
+
+    function closeLogoutPopup() {
+        document.getElementById("logoutPopup").style.display = "none";
+    }
+  </script>
+</html>

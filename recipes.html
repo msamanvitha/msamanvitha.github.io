@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="recipes-style.css">
+    <title>Predefined Meals</title>
+</head>
+<body>
+
+    <!-- Predefined meals array (replace this with your actual data) -->
+    <div id="main">
+        <!-- Meal Cards will be dynamically added here -->
+    </div>
+
+    <script>
+        // its make a favourites meal array if its not exist in local storage
+        if (localStorage.getItem("favouritesList") == null) {
+            localStorage.setItem("favouritesList", JSON.stringify([]));
+        }
+        // Predefined meals array (replace this with your actual data)
+        const predefinedMeals = [
+            { idMeal: 1, strMealThumb: "assets/dosa.jpeg", strMeal: "Dosa", strDesc: "A savory South Indian crepe made from fermented rice and lentil batter, typically served with chutneys and sambar."},
+            { idMeal: 2, strMealThumb: "assets/idli.jpeg", strMeal: "Idly", strDesc: "Soft and fluffy South Indian steamed rice cakes made from fermented rice and black lentil batter, often served with coconut chutney and sambar."},
+            { idMeal: 3, strMealThumb: "assets/poori.jpeg", strMeal: "Poori", strDesc: "Deep-fried Indian bread made from whole wheat flour, characterized by its fluffy texture and golden brown color, commonly served with potato curry or chana masala."},
+            { idMeal: 4, strMealThumb: "assets/upma.jpeg", strMeal: "Upma", strDesc: "A South Indian breakfast dish made from semolina, tempered with spices, and often cooked with vegetables like carrots and peas, offering a savory and comforting meal."},
+        ];
+
+        // Show all meals card in main without searching
+        function showMealList() {
+            let arr = JSON.parse(localStorage.getItem("predefinedMeals")) || [];
+            let html = "";
+
+            predefinedMeals.forEach((element) => {
+                let isFav = false;
+                for (let index = 0; index < arr.length; index++) {
+                    if(arr[index]==element.idMeal){
+                        isFav=true;
+                    }
+                }
+                if (isFav) {
+                    html += `
+                    <div class="recipe">
+                        <div class="box">
+                            <div class="card">
+                                <img src="${element.strMealThumb}" alt="">
+                                <div class="content">
+                                    <h3>${element.strMeal}</h3>
+                                    <P>${element.strDesc}</P>
+                                    <button>View Recipe</button>
+                                    <button id="main${element.idMeal}" class="btn btn-outline-light ${isFav ? 'active' : ''}" onclick="addRemoveToFavList(${element.idMeal})">&#10084;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }
+                else {
+                    html += `
+                    <div class="recipe">
+                        <div class="box">
+                            <div class="card">
+                                <img src="${element.strMealThumb}" alt="">
+                                <div class="content">
+                                    <h3>${element.strMeal}</h3>
+                                    <P>${element.strDesc}</P>
+                                    <button>View Recipe</button>
+                                    <button id="main${element.idMeal}" class="btn btn-outline-light ${isFav ? 'active' : ''}" onclick="addRemoveToFavList(${element.idMeal})">&#10084;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+
+                }
+            });
+
+            document.getElementById("main").innerHTML = html;
+        }
+
+        // Add and remove meals from favorites list
+        function addRemoveToFavList(id) {
+            let arr = JSON.parse(localStorage.getItem("favouritesList")) || [];
+            let contain = arr.includes(id);
+            if (contain) {
+                let number = arr.indexOf(id);
+                arr.splice(number, 1);
+                alert("Your meal has been removed from your favorites list");
+            } else {
+                arr.push(id);
+                alert("Your meal has been added to your favorites list");
+            }
+            localStorage.setItem("favouritesList", JSON.stringify(arr));
+            showMealList();
+        }
+
+        showMealList(); // Invoke the function to display meals on page load
+    </script>
+
+</body>
+</html>
